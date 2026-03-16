@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header('home')}"></div>
+<main class="container page">
+    <section class="card health-card">
+        <p class="eyebrow">Health Check</p>
+        <h1 th:text="${status}"></h1>
+        <p>애플리케이션이 정상 동작 중입니다.</p>
+    </section>
+</main>
+</body>
+</html>

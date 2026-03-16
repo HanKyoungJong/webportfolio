@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력기술서</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header('careers')}"></div>
+<main class="container page">
+    <section class="page-head">
+        <p class="eyebrow">Career Summary</p>
+        <h1>경력기술서</h1>
+        <p class="lead">회사별 역할과 요약을 빠르게 확인할 수 있도록 정리했습니다.</p>
+    </section>
+
+    <section class="timeline">
+        <article class="timeline-item card" th:each="career : ${careers}">
+            <div class="meta-row">
+                <span class="badge" th:text="${career.period}"></span>
+                <span class="company" th:text="${career.company}"></span>
+            </div>
+            <h2 th:text="${career.position}"></h2>
+            <p th:text="${career.summary}"></p>
+        </article>
+    </section>
+</main>
+</body>
+</html>

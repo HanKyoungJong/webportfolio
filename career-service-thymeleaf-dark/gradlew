@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Simplified Gradle wrapper bootstrap for artifact use.
+# If you already have Gradle installed, you can run `gradle wrapper` to replace this file.
+exec gradle "$@"
