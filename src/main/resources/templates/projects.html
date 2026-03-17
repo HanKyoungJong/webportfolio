@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="page">
+    <main class="container">
+        <section class="page-header">
+            <p class="eyebrow">Projects</p>
+            <h1>프로젝트</h1>
+            <p class="lead">프로젝트 내용, 기술 스택, 배운 점을 데이터 기반으로 정리했습니다.</p>
+            <nav class="nav-links">
+                <a th:href="@{/}">홈</a>
+                <a th:href="@{/careers}">경력기술서</a>
+            </nav>
+        </section>
+
+        <section class="grid-single">
+            <article class="card project-card" th:each="project : ${projects}">
+                <div class="card-head">
+                    <div>
+                        <h2 th:text="${project.title}">프로젝트명</h2>
+                        <p class="meta" th:text="${project.company}">회사명</p>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h3>프로젝트 내용</h3>
+                    <ul>
+                        <li th:each="item : ${project.contents}" th:text="${item}">내용</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <h3>사용 기술 스택</h3>
+                    <div class="chips">
+                        <span class="chip" th:each="stack : ${project.techStacks}" th:text="${stack}">기술</span>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h3>배운 점</h3>
+                    <ul>
+                        <li th:each="learning : ${project.learnings}" th:text="${learning}">배운 점</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </main>
+</div>
+</body>
+</html>
