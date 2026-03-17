@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="17" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
+=======
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="career-service-thymeleaf" options="-parameters" />
+      <module name="career-service-thymeleaf.main" options="-parameters" />
+      <module name="career-service-thymeleaf.test" options="-parameters" />
+    </option>
+>>>>>>> 0d75a433d8dfbd7463bb47254963d5f4674c2a66
   </component>
 </project>

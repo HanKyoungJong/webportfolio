@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header(active)">
+    <div class="container nav-wrap">
+        <a class="brand" th:href="@{/}">HKJ Portfolio</a>
+        <nav class="nav">
+            <a th:classappend="${active == 'home'} ? ' active'" th:href="@{/}">소개</a>
+            <a th:classappend="${active == 'careers'} ? ' active'" th:href="@{/careers}">경력기술서</a>
+            <a th:classappend="${active == 'projects'} ? ' active'" th:href="@{/projects}">프로젝트</a>
+        </nav>
+    </div>
+</header>
+</body>
+</html>
