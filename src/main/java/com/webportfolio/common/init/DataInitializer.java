@@ -31,7 +31,7 @@ public class DataInitializer implements CommandLineRunner {
             projectRepository.save(new Project("포스코 고객사 ECM문서 권한 개발 및 웹개발", "키츠",
                     "포스코 고객사 ECM 문서 관리 시스템의 웹 및 API 개발·운영 담당\nSpring 기반 ECM 웹 애플리케이션에서 문서 권한 관리 기능 개발 수행\nJava 11 기반 시스템을 Java 17 환경으로 마이그레이션하여 런타임 업그레이드 진행\nJDK 변경에 따른 비호환 API 수정 및 코드 호환성 개선 작업 수행\n라이브러리 버전 정합성 검토 및 전체 코드 수정 후 기능·통합 테스트 진행\nLinux 서버 환경에서 JAR 파일 생성 및 배포, Job 및 Batch 프로그램 실행·테스트\nShell 스크립트와 리눅스 커맨드를 활용해 배치 실행 상태 확인 및 로그 분석\nOracle DB 연동을 통한 데이터 처리 및 서비스 정상 동작 검증\nBatch 실행 중 발생한 오류 원인 분석 및 수정으로 운영",
                     "Java 11\nSpring Framework\nMySQL\nUbuntu\nGitHubn\nJSP\nJavaScript",
-                    "API 자동화 테스트 환경 구축을 통한 서비스 품질 개선 경험\nCI/CD 환경에서 자동화 테스트 적용 및 배포 안정성 강화 경험"));
+                    "ECM 개발 운영을 하면서 전반적인 ECM에대한 배운 경험\n테스트 적용 및 배포 안정성 강화 경험"));
 
             projectRepository.save(new Project("키즈노트 서비스 및 고객사용 관리자 시스템 자동화 개발", "키즈노트",
                 "키즈노트 서비스 자동화 개발 및 고객사 Admin 개발 및 유지보수\n유아 교육기관과 학부모 간의 소통을 지원하는 Admin 플랫폼 백엔드 개발\n주요 기능: 알림장, 사진 및 영상 공유, 고객사 전용 관리자 시스템 개발(로그인, 게시판 등)\n자동화 개발 및 API 자동화 구축\nKatalon 기반 테스트 스크립트 개발\n고객사 관리자 시스템 요구사항 반영, 유지보수, 배포 진행",
@@ -59,9 +59,9 @@ public class DataInitializer implements CommandLineRunner {
                 "log4j를 활용한 로그 수집 및 실시간 오류 감지 시스템 개발 경험\n알람 시스템의 비동기 처리와 재시도 로직 설계 경험\n중복 알람 방지 로직을 통한 운영 효율 개선 경험"));
 
             projectRepository.save(new Project("AWS · Docker · Jenkins 기반 포트폴리오 서버 배포", "개인 포트폴리오",
-                "기존 정적 포트폴리오의 디자인과 사용자 경험을 유지하면서 Spring Boot + Thymeleaf 기반 서버 사이드 애플리케이션으로 재구성\nDDD 스타일 구조를 적용하여 경력기술서와 프로젝트 경험을 도메인 중심으로 정리\nAWS EC2 환경에 Docker 컨테이너 기반으로 배포\nJenkins를 활용한 CI/CD 자동 배포 환경 구성",
+                "Spring Boot + Thymeleaf 기반 서버 사이드 어플리케이션으로 재구성\nDDD 스타일 구조를 적용하여 경력기술서와 프로젝트 경험을 도메인 중심으로 정리\nAWS EC2 환경에 Docker 컨테이너 기반으로 배포\nJenkins를 활용한 CI/CD 자동 배포 환경 구성",
                 "Java 17\nSpring Boot\nSpring MVC\nThymeleaf\nAWS EC2\nDocker\nJenkins\nGitHub",
-                "정적 포트폴리오를 서버 사이드 구조로 전환한 경험\nAWS, Docker, Jenkins 기반 배포 자동화 경험\n백엔드 개발자 포트폴리오를 서비스 설계와 운영 관점으로 확장한 경험"));
+                "AWS, Docker, Jenkins 기반 배포 자동화 경험\n백엔드 개발자 포트폴리오를 서비스 설계와 운영 관점으로 확장한 경험"));
         }
     }
 }
