@@ -58,5 +58,111 @@
 
     </main>
 </div>
+
+<button id="chat-toggle" type="button" aria-label="챗봇 열기">💬</button>
+
+<div id="chat-widget" class="chat-widget chat-hidden">
+    <div class="chat-header">
+        <div>
+            <strong>포트폴리오 Q&A</strong>
+            <p class="chat-subtitle">경력, 프로젝트, 기술스택을 질문해보세요</p>
+        </div>
+        <button id="chat-close" type="button" class="chat-close" aria-label="챗봇 닫기">×</button>
+    </div>
+
+    <div class="chat-quick-buttons">
+        <button class="quick-btn" data-question="경력 알려줘">경력 요약</button>
+        <button class="quick-btn" data-question="최근 회사는?">최근 회사</button>
+        <button class="quick-btn" data-question="AWS 경험 있어?">AWS 경험</button>
+        <button class="quick-btn" data-question="Java / Spring 경험은?">Java / Spring</button>
+        <button class="quick-btn" data-question="프로젝트 알려줘">프로젝트</button>
+    </div>
+
+    <div id="chat-messages" class="chat-messages">
+        <div class="message bot">
+            <div class="bubble">안녕하세요.<br>백엔드 개발자 한경종의 포트폴리오입니다.<br>경력, 프로젝트, AWS, Java/Spring 경험 등을 질문해보세요.</div>
+        </div>
+    </div>
+
+    <div class="chat-input-wrap">
+        <input type="text" id="chat-input" placeholder="예: AWS 경험 있어?" />
+        <button id="chat-send" type="button">전송</button>
+    </div>
+</div>
+
+<script>
+    const chatToggle = document.getElementById("chat-toggle");
+    const chatWidget = document.getElementById("chat-widget");
+    const chatClose = document.getElementById("chat-close");
+    const chatInput = document.getElementById("chat-input");
+    const chatSend = document.getElementById("chat-send");
+    const chatMessages = document.getElementById("chat-messages");
+    const quickButtons = document.querySelectorAll(".quick-btn");
+
+    chatToggle.addEventListener("click", () => {
+        chatWidget.classList.remove("chat-hidden");
+    });
+
+    chatClose.addEventListener("click", () => {
+        chatWidget.classList.add("chat-hidden");
+    });
+
+    quickButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            sendMessage(button.dataset.question);
+        });
+    });
+
+    chatSend.addEventListener("click", () => {
+        sendMessage(chatInput.value);
+    });
+
+    chatInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            sendMessage(chatInput.value);
+        }
+    });
+
+    function appendMessage(type, text) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "message " + type;
+
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.textContent = text;
+
+        wrapper.appendChild(bubble);
+        chatMessages.appendChild(wrapper);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function sendMessage(question) {
+        const text = (question || "").trim();
+        if (!text) return;
+
+        appendMessage("user", text);
+        chatInput.value = "";
+
+        try {
+            const response = await fetch("/api/chat/ask", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ question: text })
+            });
+
+            if (!response.ok) {
+                appendMessage("bot", "챗봇 응답 중 오류가 발생했습니다.");
+                return;
+            }
+
+            const data = await response.json();
+            appendMessage("bot", data.answer || "답변을 불러오지 못했습니다.");
+        } catch (error) {
+            appendMessage("bot", "서버 연결 중 오류가 발생했습니다.");
+        }
+    }
+</script>
 </body>
 </html>
